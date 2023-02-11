@@ -1,5 +1,3 @@
-import {Sql} from "@prisma/client/runtime";
-
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 

@@ -9,11 +9,6 @@ const getAllCategoriesRoute = require('./category/port/getAllcategories').getAll
 const getOneCategoryRoute = require('./category/port/getOneCategory').getOneCategory;
 const updateCategoryCountRoute = require('./category/port/updateCategoryCount').updateCategoryCount;
 
-// app.register(async (req: any, rep: any, next: any) => {
-//     req['user'] = await getUserWithToken(req)
-//     next();
-// });
-
 function startServer() {
     const port = process.env["PORT"];
     app.listen(port, (err: any, add: any) => {
