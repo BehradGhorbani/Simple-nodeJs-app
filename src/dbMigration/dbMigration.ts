@@ -1,14 +1,13 @@
+const fs = require('fs')
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
-
-const fs = require('fs')
 
 export class Migration {
     constructor() {
     }
 
     async createSampleData() {
-        fs.readFile('./dbMigration/sampleData.sql', 'utf8', async (err: Error, data: string[]) => {
+        fs.readFile('./src/dbMigration/sampleData.sql', 'utf8', async (err: Error, data: string[]) => {
             try {
                 data = data.toString()
                     .split('\n')

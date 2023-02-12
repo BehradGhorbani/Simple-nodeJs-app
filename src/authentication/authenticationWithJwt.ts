@@ -1,8 +1,6 @@
 import {User} from "../user/entity/user";
 import {FastifyRequest} from "fastify/types/request";
 import {sign, verify} from "jsonwebtoken"
-import {FastifyReply} from "fastify/types/reply";
-import {FastifyBaseLogger} from "fastify/types/logger";
 import {General_Errors} from "../utils/utils";
 
 export async function createJwtToken(payload: any): Promise<string>{
@@ -20,7 +18,7 @@ export async function getUserWithToken(req: FastifyRequest): Promise<User> {
         } else {
             verify(token, secret, function (err, decoded) {
                 if (err) {
-                    reject({ reason: General_Errors.TOKEN_NOT_VALID });
+                    reject({ reason: General_Errors.NOT_AUTHENTICATED });
                 } else {
                     let user = decoded as User;
                     resolve(user);
@@ -28,13 +26,4 @@ export async function getUserWithToken(req: FastifyRequest): Promise<User> {
             });
         }
     });
-}
-
-export async function isUserAuthenticatedMiddleWare(req: FastifyRequest,rep: FastifyReply, next: FastifyBaseLogger): Promise<void> {
-    try {
-        await getUserWithToken(req);
-        next()
-    } catch (err) {
-        throw {reason: err};
-    }
 }
