@@ -1,0 +1,11 @@
+export class User {
+    constructor(
+        id: string,
+        name: string,
+        email: string,
+        password: string,
+        updateAt: Date,
+        createdAt: Date,
+    ) {
+    }
+}
