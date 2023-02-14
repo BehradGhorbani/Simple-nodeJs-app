@@ -14,7 +14,7 @@
 
 7. you should first create user and then use the accessToken in every request header except login and signup.
 
-8. token should be placed in authorization field in request headers.
+8. token should be placed in authorization field in requests header.
 
 9. only user authentication flow has e2e test.
 
