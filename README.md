@@ -1,3 +1,5 @@
+<b> Simple app with nodeJs, Typescript, fastify, prisma that has simple authentication service </b>
+
 0. run "npm i -s"
 
 1. .env file should be created based on .env.example fields manually.
